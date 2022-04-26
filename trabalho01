@@ -1,0 +1,56 @@
+import java.util.Scanner;
+public class trabalho01 {
+
+    public static void main(String[] args) {
+
+        Scanner leitor=new Scanner(System.in);
+        System.out.println("Digite o tamanho da matriz:");
+        int tamMatriz = leitor.nextInt();
+
+        System.out.println("Digite o ângulo da matriz:\n1- 0\n2- 90\n3- 180\n4- 270\n5- 360");
+        int angMatriz = leitor.nextInt();
+
+        int matriz[][]=new int[tamMatriz][tamMatriz];
+        criarMatriz(matriz, tamMatriz);
+        showMatriz(matriz);
+        showMatriz(matriz);
+
+        while()
+
+        leitor.close();
+    }
+
+    public static void criarMatriz(int[][] matriz, int n){
+        for (int i = 0; i < n ; ++i) {
+            for(int j = 0; j < n; ++j) {
+                matriz[i][j]=(int) (Math.random()*100);
+            }
+        }
+    }
+    
+    public static void showMatriz(int[][] matriz){
+        for (int i = 0; i < matriz.length ; ++i) {
+            for(int j = 0; j < matriz[i].length; ++j) {
+                System.out.print(matriz[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public static void girarMatriz(int[][] matriz, int n){
+        for (int camada = 0; camada < n / 2; ++camada) {
+            int primeiro = camada;
+            int ultimo = n - 1 - camada;
+            for(int i = primeiro; i < ultimo; ++i) {
+                int mudar = i - primeiro;
+                int top = matriz[primeiro][i];
+
+                matriz[primeiro][i] = matriz[ultimo-mudar][primeiro];
+                matriz[ultimo-mudar][primeiro] = matriz[ultimo][ultimo - mudar];
+                matriz[ultimo][ultimo - mudar] = matriz[i][ultimo];
+                matriz[i][ultimo] = top;
+            }
+        }
+    }
+}
