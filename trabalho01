@@ -7,15 +7,19 @@ public class trabalho01 {
         System.out.println("Digite o tamanho da matriz:");
         int tamMatriz = leitor.nextInt();
 
-        System.out.println("Digite o ângulo da matriz:\n1- 0\n2- 90\n3- 180\n4- 270\n5- 360");
+        System.out.println("Digite o ângulo para virar a matriz:\n1- 0\n2- 90\n3- 180\n4- 270\n5- 360");
         int angMatriz = leitor.nextInt();
 
         int matriz[][]=new int[tamMatriz][tamMatriz];
         criarMatriz(matriz, tamMatriz);
         showMatriz(matriz);
-        showMatriz(matriz);
 
-        while()
+        while(angMatriz>1){
+            girarMatriz(matriz, tamMatriz);
+            angMatriz-=1;
+        }
+
+        showMatriz(matriz);
 
         leitor.close();
     }
